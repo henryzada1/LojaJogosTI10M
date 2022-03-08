@@ -4,6 +4,7 @@ function inserirUsuario($conn,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepu
 
 
 
+
 $query = "INSERT INTO `tbusuario` (`idusu`, `nomeusu`, `emailusu`, `foneusu`, `tipousu`, `cpfusu`, `cepusu`, `numusu`, `compleusu`) VALUES (NULL,'{$nomeusu}','{$emailusu}','{$foneusu}','{$tipousu}','{$cpfusu}','{$cepusu}','{$numusu}','{$compleusu}')";
 
 
@@ -45,5 +46,9 @@ function alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$ti
     return $resultado;
 
 }
-
+function deletarUsuario($conn,$codigousu){
+    $query = "delete where tdusuario where idusu='{$codigousu}'";
+    $resultado = mysqli_query($conn,$query);
+    return $resultado;
+}
 ?>
