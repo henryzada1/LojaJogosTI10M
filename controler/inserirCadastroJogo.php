@@ -8,9 +8,9 @@ extract($_REQUEST,EXTR_OVERWRITE);
 
 
 if(inserirJogos($conn,$nomejogo,$valorjogo,$generojogo,$qtdjogo,$datalancamentojogo,$studiojogo)){
-echo("O perfil foram cadastro com sucesso !!!");
+echo("O perfil foi criado com sucesso!");
 }else{
-echo("O perfil esta incompleto, tente novamente !!!");
+echo("O perfil está incompleto, tente novamente.");
 
 }
 

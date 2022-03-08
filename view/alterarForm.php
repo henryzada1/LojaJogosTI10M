@@ -39,7 +39,7 @@ $informa = visuUsuarioCodigo($conn, $codigousu);
     <input type="number" name="numusu" value="<?=$informa["numusu"] ?>" class="form-control" id="inputNumero" placeholder="00" required>
     <div class="col-5">
     <label for="inputComple" class="form-label">Complemento</label>
-    <input type="text" name="compusu" value="<?=$informa["compleusu"] ?>" class="form-control" id="inputComple" placeholder="Casa 2">
+    <input type="text" name="complesu" value="<?=$informa["compleusu"] ?>" class="form-control" id="inputComple" placeholder="Casa 2">
   </div>
   </div>
   <div class="col-md-6">

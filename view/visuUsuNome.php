@@ -28,10 +28,12 @@ include_once("../model/usuarioModel.php");
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">codigo</th>
+      <th scope="col">Código</th>
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Fone</th>
+      <th scope="col">Alterar</th>
+      <th scope="col">Excluir</th>
     </tr>
   </thead>
   <tbody>
@@ -40,20 +42,30 @@ $nomeusu = isset ($_POST["nomeUsu"])? $_POST["nomeUsu"]:"" ;
 
 if($nomeusu){
 
-$dado = visuUsuarioNome($conn,$nomeusu);
-
-foreach($dado as $nomeUsuarios): 
-?>
-    <tr>
-      <th scope="row"><?=$nomeUsuarios["idusu"] ?></th>
-      <td><?=$nomeUsuarios["nomeusu"] ?></td>
-      <td><?=$nomeUsuarios["emailusu"] ?></td>
-      <td><?=$nomeUsuarios["foneusu"] ?></td>
-    </tr>
-    <?php
-      endforeach;
-    }
+  $dado2 = visuUsuarioNome($conn,$nomeusu);
+  
+  foreach($dado2 as $nomeUsuarios): 
     ?>
+        <tr>
+          <th scope="row"><?=$nomeUsuarios["idusu"] ?></th>
+          <td><?=$nomeUsuarios["nomeusu"] ?></td>
+          <td><?=$nomeUsuarios["emailusu"] ?></td>
+          <td><?=$nomeUsuarios["foneusu"] ?></td>
+          <td>
+          <form action="../view/alterarForm.php" method="post">
+          
+          <input type="hidden" value="<?=$nomeUsuarios["idusu"] ?>" name="codigousu">
+          <button type="submit" class="bnt btn-primary">Alterar</button>
+    
+          </form>
+    
+        </td>
+          <td><?=$nomeUsuarios["idusu"] ?></td>
+        </tr>
+        <?php
+          endforeach;
+        }
+        ?>
   </tbody>
 </table>
 

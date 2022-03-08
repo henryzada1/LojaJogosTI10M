@@ -30,7 +30,7 @@ include_once("header.php");
     <input type="number" name="numusu" class="form-control" id="inputNumero" placeholder="00" required>
     <div class="col-5">
     <label for="inputComple" class="form-label">Complemento</label>
-    <input type="text" name="compusu" class="form-control" id="inputComple" placeholder="Casa 2/Bloco -A">
+    <input type="text" name="compleusu" class="form-control" id="inputComple" placeholder="Casa 2/Bloco -A">
   </div>
   </div>
   <div class="col-md-6">

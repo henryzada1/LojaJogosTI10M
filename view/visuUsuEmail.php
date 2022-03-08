@@ -28,7 +28,7 @@ include_once("../model/usuarioModel.php");
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">codigo</th>
+      <th scope="col">Código</th>
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col">Fone</th>
@@ -42,7 +42,6 @@ $emailusu = isset ($_POST["emailUsu"])? $_POST["emailUsu"]:"" ;
 
 if($emailusu){
 
-
 $dado = visuUsuarioEmail($conn, $emailusu);
 
 foreach($dado as $emailUsuarios): 
@@ -55,7 +54,7 @@ foreach($dado as $emailUsuarios):
       <td>
       <form action="../view/alterarForm.php" method="post">
       
-      <input type="hidden" value="<?=$emailUsuarios["idusu"] ?>" name="idusu">
+      <input type="hidden" value="<?=$emailUsuarios["idusu"] ?>" name="codigousu">
       <button type="submit" class="bnt btn-primary">Alterar</button>
 
       </form>

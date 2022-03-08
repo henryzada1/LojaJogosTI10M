@@ -1,10 +1,10 @@
 <?php 
 
-function inserirUsuario($conn,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compusu) {
+function inserirUsuario($conn,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compleusu) {
 
 
 
-$query = "INSERT INTO `tbusuario` (`idusu`, `nomeusu`, `emailusu`, `foneusu`, `tipousu`, `cpfusu`, `cepusu`, `numusu`, `compleusu`) VALUES (NULL,'{$nomeusu}','{$emailusu}','{$foneusu}','{$tipousu}','{$cpfusu}','{$cepusu}','{$numusu}','{$compusu}')";
+$query = "INSERT INTO `tbusuario` (`idusu`, `nomeusu`, `emailusu`, `foneusu`, `tipousu`, `cpfusu`, `cepusu`, `numusu`, `compleusu`) VALUES (NULL,'{$nomeusu}','{$emailusu}','{$foneusu}','{$tipousu}','{$cpfusu}','{$cepusu}','{$numusu}','{$compleusu}')";
 
 
 $dados = mysqli_query($conn,$query);
@@ -32,7 +32,7 @@ function visuUsuarioCodigo($conn, $codigousu){
     return $resultado;
 };
 
-function alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compusu){
+function alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compleusu){
     $query = "update tbusuario set 
     nomeusu='{$nomeusu}', 
     emailusu='{$emailusu}', 
@@ -40,7 +40,7 @@ function alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$ti
     cpfusu='{$cpfusu}', 
     cepusu='{$cepusu}', 
     numusu='{$numusu}', 
-    compleusu='{$compusu}' where idusu = '{$codigousu}'";
+    compleusu='{$compleusu}' where idusu = '{$codigousu}'";
     $resultado = mysqli_query($conn, $query);
     return $resultado;
 
