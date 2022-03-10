@@ -37,7 +37,7 @@ include_once("../model/usuarioModel.php");
     </tr>
   </thead>
   <tbody>
-  <?php
+<?php
 $codigousu = isset ($_POST["codigoUsu"])? $_POST["codigoUsu"]:"" ;
 
 if($codigousu){
@@ -53,15 +53,16 @@ foreach($dado1 as $codigoUsuarios):
         <td><?=$dado1["foneusu"] ?></td>
         <td>
         <form action="../view/alterarForm.php" method="post">
-        
-        <input type="hidden" value="<?=$dado1["idusu"] ?>" name="codigousu">
-        <button type="submit" class="bnt btn-primary">Alterar</button>
-  
+          <input type="hidden" value="<?=$dado1["idusu"] ?>" name="codigousu">
+          <button type="submit" class="bnt btn-primary">Alterar</button>
         </form>
-  
-      </td>
-        <td><?=$dado1["idusu"] ?></td>
-      </tr>
+
+        </td>
+        <td>
+            <!-- Button trigger modal -->
+        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          Apagar
+        </button></td>
       <?php
         endforeach;
       }
@@ -69,6 +70,28 @@ foreach($dado1 as $codigoUsuarios):
   </tbody>
 </table>
 
+</div>
+<?php
+
+?>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Exclusão de Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-primary">Sim</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
