@@ -60,7 +60,7 @@ foreach($dado1 as $codigoUsuarios):
         </td>
         <td>
             <!-- Button trigger modal -->
-        <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+        <td><button type="button" class="btn btn-danger"  codigo="<?=$dado1["idusu"] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">
           Apagar
         </button></td>
       <?php
@@ -87,8 +87,8 @@ foreach($dado1 as $codigoUsuarios):
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-primary">Sim</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-danger">Sim</button>
       </div>
     </div>
   </div>

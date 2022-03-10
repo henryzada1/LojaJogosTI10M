@@ -47,7 +47,7 @@ function alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$ti
 
 }
 function deletarUsuario($conn,$codigousu){
-    $query = "delete where tdusuario where idusu='{$codigousu}'";
+    $query = "delete from tbusuario where idusu='{$codigousu}'";
     $resultado = mysqli_query($conn,$query);
     return $resultado;
 }

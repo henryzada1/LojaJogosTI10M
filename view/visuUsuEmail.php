@@ -52,15 +52,15 @@ foreach($dado as $emailUsuarios):
       <td><?=$emailUsuarios["emailusu"] ?></td>
       <td><?=$emailUsuarios["foneusu"] ?></td>
       <td>
-      <form action="../view/alterarForm.php" method="post">
-      
-      <input type="hidden" value="<?=$emailUsuarios["idusu"] ?>" name="codigousu">
-      <button type="submit" class="bnt btn-primary">Alterar</button>
-
-      </form>
-
+        <form action="../view/alterarForm.php" method="post">
+          <input type="hidden" value="<?=$emailUsuarios["idusu"] ?>" name="codigousu">
+          <button type="submit" class="bnt btn-primary">Alterar</button>
+       </form>
+<!-- modal trigger button -->
     </td>
-      <td><?=$emailUsuarios["idusu"] ?></td>
+    <td><button type="button" class="btn btn-danger"  codigo="<?=$emailUsuarios["idusu"] ?>" codigo="<?=$emailUsuarios["emailusu"] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          Apagar
+    </button></td>
     </tr>
     <?php
       endforeach;
@@ -70,6 +70,48 @@ foreach($dado as $emailUsuarios):
 </table>
 
 </div>
+<?php
+
+?>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Exclusão de Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">  
+      <form action="../controler/deletarUsuario.php" method="get">
+          <input type="hidden" class="codigo form-control" name="codigousu">
+          <button type="submit" class="btn btn-danger">Sim</button>
+      </form>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var deletarUsuarioModal = document.getElementById('deleteModal');
+      deletarUsuarioModal.addEventListener('show.bs.modal', function(event){
+        var button = event.relatedTarget;
+        var codigo = button.getAttribute('codigo');
+        var email = button.getAttribute('email');
+
+        var modalBody = deletarUsuarioModal.querySelector('.modal-body');
+        modalBody.textContent = 'Gostaria de excluir o E-mail ' + email + '?'
+
+        var Codigo = deletarUsuarioModal.querySelector('.modal-footer .codigo');
+        Codigo.value = codigo;
+
+      })
+
+</script>
 
 <?php
 

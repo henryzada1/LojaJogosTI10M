@@ -60,7 +60,10 @@ if($nomeusu){
           </form>
     
         </td>
-          <td><?=$nomeUsuarios["idusu"] ?></td>
+           <!-- Button trigger modal -->
+        <td><button type="button" class="btn btn-danger"  codigo="<?=$nomeUsuarios["idusu"] ?>" codigo="<?=$nomeUsuarios["nomeusu"] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          Apagar
+        </button></td>
         </tr>
         <?php
           endforeach;
@@ -69,6 +72,28 @@ if($nomeusu){
   </tbody>
 </table>
 
+</div>
+
+<?php
+
+?>
+<!-- Modal -->
+<div class="modal" tabindex="-1" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Exclusão de Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-danger">Sim</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php
