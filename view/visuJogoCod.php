@@ -28,14 +28,17 @@ include_once("../model/jogoModel.php");
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">código</th>
+      <th scope="col">Código</th>
       <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Fone</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Gênero</th>
+      <th scope="col">Alterar</th>
+      <th scope="col">Apagar</th>
     </tr>
   </thead>
   <tbody>
-  <?php
+<?php
 $codigojogo = isset ($_POST["codigoJogo"])? $_POST["codigoJogo"]:"" ;
 
 if($codigojogo){
@@ -43,23 +46,75 @@ if($codigojogo){
 $dado = visuJogoCodigo($conn,$codigojogo);
 
 if($dado){
-
-?>
-    <tr>
-    <th scope="row"><?=$dado["idjogo"] ?></th>
-      <td><?=$dado["nomejogo"] ?></td>
-      <td><?=$dado["valorjogo"] ?></td>
-      <td><?=$dado["qtdjogo"] ?></td>
-      <td><?=$dado["generojogo"] ?></td>
+  ?>
+      <tr>
+      <th scope="row"><?=$dado["idjogo"] ?></th>
+        <td><?=$dado["nomejogo"] ?></td>
+        <td><?=$dado["valorjogo"] ?></td>
+        <td><?=$dado["qtdjogo"] ?></td>
+        <td><?=$dado["generojogo"] ?></td>
+        <td>
+        <form action="../view/alterarJogoForm.php" method="post">
+          <input type="hidden" value="<?=$dado["idjogo"] ?>" name="codigojogo">
+          <button type="submit" class="bnt btn-primary">Alterar</button>
+        </form>
+      <!-- modal trigger button -->
+      </td>
+       
+       <td><button type="button" class="btn btn-danger"  codigo="<?=$dado["idjogo"] ?>" codigo="<?=$codigoJogo["codigojogo"] ?>" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          Apagar
+    </button></td>
     </tr>
+  
     <?php
-    }
-    }
-    ?>
+        }
+      }
+      ?>
+    
   </tbody>
 </table>
 
 </div>
+<?php
+
+?>
+<!-- Modal -->
+<div class="modal" tabindex="-1" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModal">Exclusão de Código</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">  
+      <form action="../controler/deletarJogo.php" method="get">
+          <input type="hidden" class="codigo form-control" name="codigojogo">
+          <button type="submit" class="btn btn-danger">Sim</button>
+      </form>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var deletarJogoModal = document.getElementById('deleteModal');
+      deletarJogoModal.addEventListener('show.bs.modal', function(event){
+        var button = event.relatedTarget;
+        var codigo = button.getAttribute('codigo');
+
+        var modalBody = deletarJogoModal.querySelector('.modal-body');
+        modalBody.textContent = 'Gostaria de excluir o jogo de código ' + codigo + '?'
+
+        var Codigo = deletarJogoModal.querySelector('.modal-footer .codigo');
+        Codigo.value = codigo;
+
+      })
+
+</script>
 
 <?php
 

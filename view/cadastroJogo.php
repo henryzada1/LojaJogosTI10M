@@ -14,7 +14,7 @@ include_once("header.php");
     <input type="text" name="valorjogo" class="form-control" id="inputValor" placeholder="XX,XX" required>
   </div>
   <div class="col-md-6">
-    <label for="inputGenero" class="form-label">Tipo de usuário</label>
+    <label for="inputGenero" class="form-label">Tipo de jogo</label>
     <select id="inputGenero" name="generojogo" class="form-select">
       <option selected>Escolha...</option>
       <option value="RPG">RPG</option>
@@ -26,7 +26,7 @@ include_once("header.php");
   </div>
   <div class="col-6">
     <label for="inputQuantidade" class="form-label">Quantidade de Jogos</label>
-    <input type="number" name="qtdjogo" class="form-control" id="inpuQuantidade" placeholder="XXX" required>
+    <input type="number" name="qtdjogo" class="form-control" id="inputQuantidade" placeholder="XXX" required>
   </div>
   <div class="col-md-4">
     <label for="inputdata" class="form-label">Data De Lançamento</label>
@@ -41,7 +41,7 @@ include_once("header.php");
     <div class="form-check">
       <input class="form-check-input" type="checkbox" id="gridCheck">
       <label class="form-check-label" for="gridCheck">
-        Aceita-se os termo de uso do sistema de jogos
+        Aceita-se os termos de uso do sistema de jogos
       </label>
     </div>
   </div>

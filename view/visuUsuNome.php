@@ -88,13 +88,33 @@ if($nomeusu){
       <div class="modal-body">
         ...
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer">  
+      <form action="../controler/deletarUsuario.php" method="get">
+          <input type="hidden" class="codigo form-control" name="codigousu">
+          <button type="submit" class="btn btn-danger">Sim</button>
+      </form>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-danger">Sim</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  var deletarUsuarioModal = document.getElementById('deleteModal');
+      deletarUsuarioModal.addEventListener('show.bs.modal', function(event){
+        var button = event.relatedTarget;
+        var codigo = button.getAttribute('codigo');
+        var nome = button.getAttribute('nome');
+
+        var modalBody = deletarUsuarioModal.querySelector('.modal-body');
+        modalBody.textContent = 'Gostaria de excluir o usuário ' + nome + '?'
+
+        var Codigo = deletarUsuarioModal.querySelector('.modal-footer .codigo');
+        Codigo.value = codigo;
+
+      })
+
+</script>
 
 <?php
 
