@@ -1,13 +1,14 @@
 <?php 
 
-function inserirUsuario($conn,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compleusu) {
+function inserirUsuario($conn,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compleusu,$senhausu,$pinusu) {
+    
+    $salto = ['cost' => 8];
+    
+    $senhaCrip = password_hash($senhausu,PASSWORD_BCRYPT,$salto);
 
 
 
-
-$query = "INSERT INTO `tbusuario` (`idusu`, `nomeusu`, `emailusu`, `foneusu`, `tipousu`, `cpfusu`, `cepusu`, `numusu`, `compleusu`) VALUES (NULL,'{$nomeusu}','{$emailusu}','{$foneusu}','{$tipousu}','{$cpfusu}','{$cepusu}','{$numusu}','{$compleusu}')";
-
-
+$query = "INSERT INTO `tbusuario` (`idusu`, `nomeusu`, `emailusu`, `foneusu`, `tipousu`, `cpfusu`, `cepusu`, `numusu`, `compleusu`,`senhausu`,`pinusu`) VALUES (NULL,'{$nomeusu}','{$emailusu}','{$foneusu}','{$tipousu}','{$cpfusu}','{$cepusu}','{$numusu}','{$compleusu}','{$senhaCrip}','{$pinusu}')";
 $dados = mysqli_query($conn,$query);
 return $dados; 
 
